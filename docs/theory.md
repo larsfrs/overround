@@ -6,12 +6,12 @@ We have an event, with $n$ mutually exclusive outcomes, indexed by $i = 1, 2, \l
 
 | <div style="width:100px">Symbol</div> | Meaning |
 | --- | --- |
-| $p_i$ | The true probability of outcome $i$ occurring. since mutually exclusive, $\displaystyle\sum_{i=1}^{n} p_i = 1$. |
-| $o_i$ | The fair, decimal odds for outcome i. These will be modified in all kinds of ways in the different methods, to become $o_i'$. |
-| $s_i$ | The stake placed on an outcome $i$. |
+| $p_i$ | The true probability of outcome $i$ occurring. since mutually exclusive, $\displaystyle\sum_{i=1}^{n} p_i = 1$. Also, $p_i > 0$ for all $i$. |
+| $o_i = \frac{1}{p_i}$ | The fair, decimal odds for outcome i. These will be modified in all kinds of ways in the different methods, to become $o_i'$. |
+| $s_i$ | The total stake from all bettors, the BM receives on outcome $i$. |
 | $o_i' = \frac{1}{p_i'}$ | The modified odds for outcome $i$, which may be different from the fair odds $o_i$, with their own implied probabilities $p_i' = 1 / o_i'$. |
 | $B = \displaystyle\sum_{i=1}^{n} p_i'$ | The Booksum. |
-| $1 - B$ | The overround. |
+| $B - 1$ | The overround. |
 
 | <div style="width:100px">Abbreviations</div> | Meaning |
 | --- | --- |
@@ -22,7 +22,9 @@ We have an event, with $n$ mutually exclusive outcomes, indexed by $i = 1, 2, \l
 
 ### (0) Fair Odds
 
-### (1) Proportional Overround
+### (1) Multiplicative Overround
+
+
 
 ### (2) Additive Overround
 
