@@ -17,6 +17,13 @@ We have an event, with $n$ mutually exclusive outcomes, indexed by $i = 1, 2, \l
 | --- | --- |
 | BM | Bookmaker |
 
+We will look at mainly these 2 expected values, each in the two variants "on outcome $i$" and "summed over the whole event".
+
+| <div style="width:100px">Expected value</div> | on outcome $i$ | summed over the event |
+| --- | --- | --- |
+| $\mathbb{E}[\text{payout}]$ | $p_i \, s_i \, o_i'$ | $\displaystyle\sum_{i=1}^{n} p_i \, s_i \, o_i'$ |
+| $\mathbb{E}[\text{profit for the BM}]$ | $s_i \left( 1 - p_i \, o_i' \right)$ | $\displaystyle\sum_{i=1}^{n} s_i \left( 1 - p_i \, o_i' \right)$ |
+
 
 ## Methods
 
@@ -27,5 +34,30 @@ We have an event, with $n$ mutually exclusive outcomes, indexed by $i = 1, 2, \l
 
 
 ### (2) Additive Overround
+
+
+$$
+p_i' = p_i + m \qquad \text{with} \qquad 0 < m < 1 - \max_i p_i
+$$
+
+
+- => $o_{i, add}' = \dfrac{1}{p_i + m}$
+- => $B = \sum_{i=1}^{n} (p_i + m) = 1 + n \, m$
+- => $B - 1 = n \, m$
+
+
+$$
+\begin{aligned}
+\mathbb{E}[\text{payout on event}] &= \sum_{i=1}^{n} p_i s_i o_i' = \sum_{i=1}^{n} \frac{p_i \, s_i}{p_i + m} = \sum_{i=1}^{n} \underbrace{\frac{s_i}{1 + \frac{m}{p_i}}}_{\le \, s_i} \\
+
+&\implies \text{expected payout always smaller than stake }
+\\
+
+\mathbb{E}[\text{profit BM on event}] &= \sum_{i=1}^{n} s_i - \mathbb{E}[\text{payout on event}] = \sum_{i=1}^{n} s_i \left( 1 - \frac{p_i}{p_i + m} \right) = \sum_{i=1}^{n} s_i \, \frac{m}{p_i + m} \\
+
+&\implies \text{expected profit always > 0 }
+\end{aligned}
+$$
+
 
 ### (3) Exponential Overround
